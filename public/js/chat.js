@@ -70,4 +70,9 @@ socket.on('sendLocation', (position) => {
     console.log(`this is user location: ${position}`)
 })
 
-socket.emit('join', { username, room })
+socket.emit('join', { username, room }, (error) => {
+    if(error) {
+        alert(error)
+        location.href = '/'
+    }
+})
